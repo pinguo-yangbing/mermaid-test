@@ -1,0 +1,24 @@
+app:
+    name: &appName kratos-template-svc
+    env: &appEnv prod
+    region: hz #hz(杭州) sg (新加坡)
+http:
+    address: 0.0.0.0:8000
+    timeout: 30s
+grpc:
+    address: 0.0.0.0:9000
+    timeout: 30s
+mongodb:
+    dsn: ""
+    database: test
+trace:
+    name: *appName
+    env: *appEnv
+    aliConfig:
+        project: ""
+        instanceId: ""
+        endpoint: ""
+        accessKey: ""
+        AccessSecret: ""
+    jaeger:
+        endpoint: ""

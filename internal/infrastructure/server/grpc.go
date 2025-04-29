@@ -7,8 +7,8 @@ import (
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	kierr "github.com/pinguo-icc/kratos-library/v2/ierr"
 	klog "github.com/pinguo-icc/kratos-library/v2/log"
-	"github.com/pinguo-icc/kratos-template-svc/api"
-	"github.com/pinguo-icc/kratos-template-svc/internal/infrastructure/conf"
+	"github.com/pinguo-icc/mermaid-test/api"
+	"github.com/pinguo-icc/mermaid-test/internal/infrastructure/conf"
 	"go.opentelemetry.io/otel/trace"
 )
 

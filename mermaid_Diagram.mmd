@@ -1,0 +1,221 @@
+---
+title: AEP2.0 
+---
+classDiagram
+        ModelRepo ..> Model
+        DeploySvc --> ModelRepo
+        DeploySvc -- "1" Karmada
+        Model -- "1" MirrorVendor
+        Model -- "1" CodeRepository
+        Model -- "0..*" Image
+        Model -- "0..*" Deployment
+        MirrorVendor -- "1" MirrorVendorType
+        CodeRepository -- "1"  CodeRepositoryType
+        Image -- "1" BuildingStatus
+        Deployment -- "1" CallType
+        Deployment -- "1" ReplicaConfig
+        Deployment -- "1" DeployConfig
+        Deployment -- "1" TrafficConfig
+        Deployment -- "1" Status
+        ReplicaConfig -- "1" ReplicaConfigType
+        ReplicaConfig -- "0..1" Auto
+        ReplicaConfig -- "0..1" Manual
+        DeployConfig -- "1" DeployConfigType
+        DeployConfig -- "0..1" DeployConfigBase
+
+        
+
+        class Model {
+            <<Entity>>
+           +ObjectId id
+           +string name
+           +string description
+           +string creator
+           +string mender
+           +time.Time createdAt
+           +time.Time updatedAt
+           +MirrorVendor mirrorVendor
+           +CodeRepository codeRepository
+           +[]Image images
+           +[]Deployment deployments
+           +validate()
+        }
+
+        class Image {
+           <<ValueObject>>
+           +ObjectId id
+           +string modelId
+           +string tag
+           +string comment
+           +uint32 flowPercentage
+           +string imageURI
+           +BuildingStatus status
+           +time.Time createdAt
+           +time.Time updatedAt
+           +list()
+           +create()
+           +update()
+        }   
+
+        class CodeRepository {
+            <<ValueObject>>
+           +string name
+           +string region
+           +string acrRepoId
+           +CodeRepositoryType type
+           +CreateAcrRepository()
+           +DeleteAcrRepository()
+        }
+
+        class Deployment {
+            <<ValueObject>>
+           +string template
+           +string deployId
+           +string modelId
+           +string tag
+           +CallType callType
+           +ReplicaConfig replicaConfig
+           +DeployConfig config
+           +Status status
+           +time.Time createdAt
+           +time.Time updatedAt
+           +time.Time applyTime
+           +TrafficConfig trafficConfig
+        }
+        
+        class MirrorVendorType{
+            <<Enumeration>>
+            aws
+            ali
+        }
+
+        class CodeRepositoryType{
+            <<Enumeration>>
+            git
+        }
+
+        class BuildingStatus{
+            <<Enumeration>>
+            building
+            succeeded
+            failed
+        }
+
+        class CallType{
+            <<Enumeration>>
+            sync
+            async
+        }
+
+        class ReplicaConfig{
+            <<ValueObject>>
+            +ReplicaConfigType type
+            +Auto auto
+            +Manual manual
+        }
+
+        class ReplicaConfigType{
+            <<Enumeration>>
+            auto
+            manual
+        }
+
+        class Auto{
+            <<ValueObject>>
+            +int minReplicas
+            +int maxReplicas
+            +int64 maxDelay
+        }
+
+        class Manual{
+            <<ValueObject>>
+            +int replicas
+        }
+
+        class DeployConfig{
+            <<ValueObject>>
+           +DeployConfigType type
+           +DeployConfigBase base
+           +string customDeployYaml
+           +string customKarmadaYaml
+        }
+
+        class DeployConfigType{
+            <<Enumeration>>
+           base
+           custom
+        }
+
+        class DeployConfigBase{
+            <<ValueObject>>
+            +map[string]string envs
+            +string cpuRequest
+            +string cpuLimit
+            +string memoryRequest
+            +string memoryLimit
+            +string gpuRequest
+            +string gpuMemoryRequest
+            +int maxStartTime
+            +[]string clusters
+        }
+
+        class TrafficConfig{
+            <<ValueObject>>
+           +int weight
+           +bool dev
+        }
+
+        class Status{
+            <<Enumeration>>
+            normal
+            deleted
+        }
+
+        class MirrorVendor{
+            <<ValueObject>>
+            Name:<string>
+            +string region
+            +string acrRepoId
+            +MirrorVendorType type
+        }
+
+        class ModelRepo{
+            <<Repository>>
+            +Create()
+            +Update()
+            +Remove()
+            +FindList()
+            +FindOne()
+            +AppendVersion()
+            +AppendDeploy()
+        }
+
+        class DeploySvc{
+            <<Domain Service>>
+
+            + Karmada: Karmada
+            +Deploy()
+            +ApplyModel()
+            +Clusters() 
+            +ResourceSummary()
+            +DeploymentsByModelTag()
+        }
+
+        class Karmada{
+            <<Abstract>>
+            +GetClusters()
+            +GetResources()
+            +GetResourceSummary()
+            +GetDeploymentsByModelTag()
+        }
+
+        class Manual{
+            <<ValueObject>>
+            +int replicas
+        }
+        
+        
+        
+
+        
+        

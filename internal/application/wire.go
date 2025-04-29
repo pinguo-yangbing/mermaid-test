@@ -2,7 +2,7 @@ package application
 
 import (
 	"github.com/google/wire"
-	"github.com/pinguo-icc/kratos-template-svc/api"
+	"github.com/pinguo-icc/mermaid-test/api"
 )
 
 var ProviderSet = wire.NewSet(

@@ -12,7 +12,7 @@ import (
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"github.com/pinguo-icc/kratos-library/v2/pdebug"
-	"github.com/pinguo-icc/kratos-template-svc/internal/infrastructure/conf"
+	"github.com/pinguo-icc/mermaid-test/internal/infrastructure/conf"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

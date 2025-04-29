@@ -2,6 +2,6 @@ syntax = "proto3";
 
 package api;
 
-option go_package = "github.com/pinguo-icc/kratos-template-svc/api;api";
+option go_package = "github.com/pinguo-icc/mermaid-test/api;api";
 
 service Template {}

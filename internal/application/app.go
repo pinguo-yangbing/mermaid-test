@@ -1,7 +1,7 @@
 package application
 
 import (
-	"github.com/pinguo-icc/kratos-template-svc/api"
+	"github.com/pinguo-icc/mermaid-test/api"
 )
 
 type App struct {

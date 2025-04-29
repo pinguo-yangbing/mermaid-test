@@ -10,14 +10,14 @@ import (
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/pinguo-icc/kratos-library/v2/trace"
-	"github.com/pinguo-icc/kratos-template-svc/api"
-	"github.com/pinguo-icc/kratos-template-svc/internal/application"
-	"github.com/pinguo-icc/kratos-template-svc/internal/infrastructure/conf"
-	"github.com/pinguo-icc/kratos-template-svc/internal/infrastructure/server"
+	"github.com/pinguo-icc/mermaid-test/api"
+	"github.com/pinguo-icc/mermaid-test/internal/application"
+	"github.com/pinguo-icc/mermaid-test/internal/infrastructure/conf"
+	"github.com/pinguo-icc/mermaid-test/internal/infrastructure/server"
 )
 
 import (
-	_ "github.com/pinguo-icc/kratos-template-svc/internal/domain"
+	_ "github.com/pinguo-icc/mermaid-test/internal/domain"
 )
 
 // Injectors from wire.go:

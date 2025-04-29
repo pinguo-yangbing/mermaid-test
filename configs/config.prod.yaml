@@ -1,5 +1,5 @@
 app:
-    name: &appName kratos-template-svc
+    name: &appName mermaid-test
     env: &appEnv prod
     region: hz #hz(杭州) sg (新加坡)
 http:

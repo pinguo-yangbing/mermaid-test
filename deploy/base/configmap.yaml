@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: kratos-template-svc-configmap
-  namespace: kratos-template-svc-namespace
+  name: mermaid-test-configmap
+  namespace: mermaid-test-namespace
 data:
   mongodb.dsn: "mongodb://localhost:27017/admin?replicaSet=mgset-34049251&readPreference=secondaryPreferred"

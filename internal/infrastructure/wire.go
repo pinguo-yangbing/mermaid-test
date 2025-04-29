@@ -4,8 +4,8 @@ import (
 	"github.com/google/wire"
 	pmongo "github.com/pinguo-icc/kratos-library/v2/mongo"
 	"github.com/pinguo-icc/kratos-library/v2/trace"
-	"github.com/pinguo-icc/kratos-template-svc/internal/infrastructure/conf"
-	"github.com/pinguo-icc/kratos-template-svc/internal/infrastructure/server"
+	"github.com/pinguo-icc/mermaid-test/internal/infrastructure/conf"
+	"github.com/pinguo-icc/mermaid-test/internal/infrastructure/server"
 )
 
 var ProviderSet = wire.NewSet(

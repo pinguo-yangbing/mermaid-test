@@ -10,10 +10,10 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
 
-	"github.com/pinguo-icc/kratos-template-svc/internal/application"
-	_ "github.com/pinguo-icc/kratos-template-svc/internal/domain"
-	infra "github.com/pinguo-icc/kratos-template-svc/internal/infrastructure"
-	"github.com/pinguo-icc/kratos-template-svc/internal/infrastructure/conf"
+	"github.com/pinguo-icc/mermaid-test/internal/application"
+	_ "github.com/pinguo-icc/mermaid-test/internal/domain"
+	infra "github.com/pinguo-icc/mermaid-test/internal/infrastructure"
+	"github.com/pinguo-icc/mermaid-test/internal/infrastructure/conf"
 )
 
 //initApp init kratos application.

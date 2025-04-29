@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kratos-template-svc
-  namespace: kratos-template-svc-namespace
+  name: mermaid-test
+  namespace: mermaid-test-namespace
   # annotations:
   #   prometheus.io/scrape: "true"
   #   prometheus.io/port: "9000"
@@ -14,4 +14,4 @@ spec:
       protocol: TCP
       targetPort: 9000
   selector:
-    app: kratos-template-svc
+    app: mermaid-test
